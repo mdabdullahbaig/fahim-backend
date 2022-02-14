@@ -1,8 +1,7 @@
 const Comment = require("../models/commentModal");
 
 const createComment = async (req, res, next) => {
-  const message = req.body.message;
-  const userId = req.params.userId;
+  const { message, userId } = req.body;
 
   const comment = new Comment({
     message,
@@ -12,6 +11,7 @@ const createComment = async (req, res, next) => {
   try {
     await comment.save();
   } catch (err) {
+    console.log(err);
     return next(err);
   }
 

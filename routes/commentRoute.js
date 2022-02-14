@@ -7,7 +7,7 @@ const {
 
 const router = express.Router();
 
-router.post("/:userId", createComment);
+router.post("/", createComment);
 router.get("/", getAllComment);
 router.get("/:userId", getYourComments);
 
